@@ -111,6 +111,19 @@
                             </select>
                             </div>
                         </div> 
+                    <div class="form-group row">
+                    <label for="email" class="col-4 col-form-label">Email</label> 
+                         <div class="col-8">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                   <div class="input-group-text">
+                                    <i class="fa fa-envelope"></i>
+                                  </div>
+                                 </div> 
+                                    <input id="email" name="email" type="text" class="form-control" required="required">
+                                </div>
+                             </div>
+                         </div>
                         <div class="form-group row">
                             <div class="offset-4 col-8">
                             <input type="submit" value="Kirim" name="kirim" class="btn btn-primary">
@@ -136,6 +149,7 @@
             $prodi = $_POST["Study"];
             $skill = $_POST["skill"];
             $address = $_POST["City"];
+            $Email = $_POST["email"];
         };
            $nilai=0;
            foreach ($skill as $Data) {
@@ -175,7 +189,7 @@
             };
         };
            // Function Keterangan Lulus
-        function predikat($nim,$nama,$kelamin,$prodi,$address,$skill,$nilai){            //    Cetak Hasil
+        function predikat($nim,$nama,$kelamin,$prodi,$address,$skill,$Email,$nilai){            //    Cetak Hasil
             echo <<<Hasil
             <h4>Hasil Yang Dikirim</h4>
             <p>Nama : $nama</p>
@@ -203,6 +217,7 @@
             }elseif($nilai > 100 && $nilai <= 150){
                 echo "<p>Predikat : Sangat Baik</p>";
             };
+            echo "Email : $Email";
         };
-        predikat($nim,$nama,$kelamin,$prodi,$address,$skill,$nilai);
+        predikat($nim,$nama,$kelamin,$prodi,$address,$skill,$Email,$nilai);
         ?>
